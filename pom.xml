@@ -13,6 +13,7 @@
         <junit.version>4.12</junit.version>
         <spring.version>4.2.2.RELEASE</spring.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
+        <jstl.version>1.2</jstl.version>
     </properties>
 
     <dependencies>
@@ -28,6 +29,20 @@
             <version>${javax.servlet.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+<!--        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+            <version>${jstl.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>-->
 
         <dependency>
             <groupId>junit</groupId>
