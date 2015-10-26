@@ -1,0 +1,35 @@
+[33mcommit f0e320610e86ee19619e77f7fba5dc4a6ff06c3c[m
+Author: Eduardo Ortiz <eduortiz.g@gmail.com>
+Date:   Sun Oct 25 23:14:06 2015 -0300
+
+    Added Persistence and Domain Layer
+
+[33mcommit 91ea6325c495419d7dc32f18b65199aff8d65b55[m
+Author: Eduardo Ortiz <eduortiz.g@gmail.com>
+Date:   Sun Oct 25 02:09:59 2015 -0300
+
+    Added missing Product Files
+
+[33mcommit f0112f7f608e357310f34b9b3a770b358776b4e5[m
+Author: Eduardo Ortiz <eduortiz.g@gmail.com>
+Date:   Sun Oct 25 02:06:48 2015 -0300
+
+    Added Product Domain, Controller ans View
+
+[33mcommit bbf148a8d8a60ba25b9a2a4b2385c4e02984c3e7[m
+Author: Eduardo Ortiz <eduortiz.g@gmail.com>
+Date:   Sat Oct 24 19:17:58 2015 -0300
+
+    Changed Configuration and added servlet dependency
+
+[33mcommit 8fbdb5dc4b2baff93a787cc01cd6cd0aef46a445[m
+Author: Eduardo Ortiz <eduortiz.g@gmail.com>
+Date:   Sat Oct 24 17:22:40 2015 -0300
+
+    Removed Redundant dependencies
+
+[33mcommit 75cbe07e10e03f14234080f39e8885e3a99aaa6d[m
+Author: Eduardo Ortiz <eduortiz.g@gmail.com>
+Date:   Fri Oct 23 03:08:18 2015 -0300
+
+    First Commit - Basic Configuration
