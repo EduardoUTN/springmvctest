@@ -16,7 +16,7 @@
     <context:component-scan base-package="com.edu"/>
 
     <!-- Configures the @Controller programming model -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven enable-matrix-variables="true"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>

@@ -1,13 +1,19 @@
 package com.edu.web;
 
+import com.edu.domain.Product;
 import com.edu.repository.ProductRepository;
 import com.edu.service.ProductService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import sun.applet.resources.MsgAppletViewer;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by ed on 10/24/15.
@@ -42,4 +48,12 @@ public class ProductController {
 
         return "products";
     }
+
+    @RequestMapping("/filter/{ByCriteria}")
+    public String getProductsByFilter(@MatrixVariable(pathVar = "ByCriteria") Map<String, List<String>> filterParams, Model model) {
+        model.addAttribute("products", productService.getProductsByFilter(filterParams));
+
+        return "products";
+    }
+
 }
