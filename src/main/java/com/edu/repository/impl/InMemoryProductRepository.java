@@ -97,4 +97,27 @@ public class InMemoryProductRepository implements ProductRepository {
         return productsByCategory;
     }
 
+    public List<Product> getProductsByManufacturer(String manufacturer) {
+        List<Product> productsByManufacturer = new ArrayList<Product>();
+
+        for(Product product: listOfProducts) {
+            if(manufacturer.equalsIgnoreCase(product.getManufacturer()));
+            productsByManufacturer.add(product);
+        }
+        return productsByManufacturer;
+    }
+
+    @Override
+    public Set<Product> getProductsByPrice(BigDecimal low, BigDecimal high) {
+        Set<Product> productsByPrice = new HashSet<Product>();
+
+        for(Product product: listOfProducts) {
+            if((low.compareTo(product.getUnitPrice())) < 0 && (high.compareTo(product.getUnitPrice())) > 0) {
+                productsByPrice.add(product);
+            }
+        }
+
+        return productsByPrice;
+    }
+
 }
