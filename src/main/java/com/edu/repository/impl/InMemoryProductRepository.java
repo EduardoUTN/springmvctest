@@ -40,6 +40,10 @@ public class InMemoryProductRepository implements ProductRepository {
         listOfProducts.add(tablet_nexus);
     }
 
+    public void addProduct(Product product) {
+        listOfProducts.add(product);
+    }
+
     public Product getProductById(String productId) {
         Product productById = null;
 
@@ -107,7 +111,6 @@ public class InMemoryProductRepository implements ProductRepository {
         return productsByManufacturer;
     }
 
-    @Override
     public Set<Product> getProductsByPrice(BigDecimal low, BigDecimal high) {
         Set<Product> productsByPrice = new HashSet<Product>();
 

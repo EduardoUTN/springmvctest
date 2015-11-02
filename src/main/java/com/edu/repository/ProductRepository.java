@@ -13,15 +13,17 @@ import java.util.Set;
 
 public interface ProductRepository {
 
+    void addProduct(Product product);
+
     Product getProductById(String productId);
 
     List<Product> getAllProducts();
 
     List<Product> getProductsByCategory(String category);
 
-    Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
-
     List<Product> getProductsByManufacturer(String manufacturer);
 
     Set<Product> getProductsByPrice(BigDecimal low, BigDecimal high);
+
+    Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
 }

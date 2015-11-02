@@ -13,15 +13,17 @@ import java.util.Set;
 
 public interface ProductService {
 
-    List<Product> getAllProducts();
+    void addProduct(Product product);
 
     Product getProductById(String productId);
 
-    List<Product> getProductsByCategory(String category);
+    List<Product> getAllProducts();
 
-    Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
+    List<Product> getProductsByCategory(String category);
 
     List<Product> getProductsByManufacturer(String manufacturer);
 
     Set<Product> getProductsByPrice(BigDecimal low, BigDecimal high);
+
+    Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
 }
