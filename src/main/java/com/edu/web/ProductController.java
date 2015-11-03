@@ -8,6 +8,9 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import sun.applet.resources.MsgAppletViewer;
 
@@ -24,6 +27,11 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+
+    @InitBinder
+    public void initialiseBinder(WebDataBinder binder) {
+        binder.setDisallowedFields("unitsInOrder", "discontinued");
+    }
 
     @RequestMapping
     public String list(Model model) {
@@ -99,7 +107,11 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public  String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct) {
+    public  String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result) {
+        String[] suppressedFields = result.getSuppressedFields();
+        if(suppressedFields.length > 0) {
+            throw new RuntimeException("Attempting to bind disallowed fields: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
+        }
         productService.addProduct(newProduct);
         return "redirect:/products";
     }
