@@ -14,6 +14,7 @@
         <div class="container">
           <h1>Products</h1>
           <p>Add Products</p>
+          <a href="<c:url value="/logout"/>" class="btn btn-danger btn-mini pull-right">logout</a>
         </div>
       </div>
     </section>
