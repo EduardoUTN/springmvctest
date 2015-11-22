@@ -24,13 +24,13 @@ public class InMemoryProductRepository implements ProductRepository {
         iPhone.setUnitsInStock(1000);
 
         Product laptop_dell = new Product("P1235", "Dell Inspiron", new BigDecimal(700));
-        laptop_dell.setDescription("Dell	Inspiron 14-inch Laptop (Black) with 3rd Generation	Intel Core processors");
+        laptop_dell.setDescription("Dell Inspiron 14-inch Laptop (Black) with 3rd Generation Intel Core processors");
         laptop_dell.setCategory("Laptop");
         laptop_dell.setManufacturer("Dell");
         laptop_dell.setUnitsInStock(1000);
 
         Product tablet_nexus = new Product("P1236", "Nexus 7", new BigDecimal(300));
-        tablet_nexus.setDescription("Google Nexus	7 is the lightest 7	inch tablet	With a quad-core Qualcomm SnapdragonTM S4 Pro processor");
+        tablet_nexus.setDescription("Google Nexus 7 is the lightest 7 inch tablet With a quad-core Qualcomm SnapdragonTM S4 Pro processor");
         tablet_nexus.setCategory("Tablet");
         tablet_nexus.setManufacturer("Google");
         tablet_nexus.setUnitsInStock(1000);
