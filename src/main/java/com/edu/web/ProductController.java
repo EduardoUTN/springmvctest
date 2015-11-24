@@ -12,8 +12,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import sun.applet.resources.MsgAppletViewer;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -30,6 +33,7 @@ public class ProductController {
 
     @InitBinder
     public void initialiseBinder(WebDataBinder binder) {
+        binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category", "unitsInStock", "productImage","condition");
         binder.setDisallowedFields("unitsInOrder", "discontinued");
     }
 
@@ -100,19 +104,28 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String getAddNewProductForm(Model model) {
-        Product newProduct = new Product();
-        model.addAttribute("newProduct", newProduct);
+    public String getAddNewProductForm(@ModelAttribute("newProduct") Product newProduct) {
         return "addProduct";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public  String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result) {
+    public  String processAddNewProductForm(@ModelAttribute("newProduct") Product productToBeAdded, BindingResult result, HttpServletRequest request) {
         String[] suppressedFields = result.getSuppressedFields();
         if(suppressedFields.length > 0) {
             throw new RuntimeException("Attempting to bind disallowed fields: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
         }
-        productService.addProduct(newProduct);
+
+        MultipartFile productImage = productToBeAdded.getProductImage();
+        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        String dir = rootDirectory + "resources" + File.separator + "images" + File.separator + productToBeAdded.getProductId() + ".jpg";
+        if(productImage != null && !productImage.isEmpty()) {
+            try {
+                productImage.transferTo(new File(dir));
+            }catch (Exception e) {
+                throw new RuntimeException("Product Image saving failed", e);
+            }
+        }
+        productService.addProduct(productToBeAdded);
         return "redirect:/products";
     }
 }

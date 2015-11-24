@@ -1,5 +1,7 @@
 package com.edu.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.math.BigDecimal;
 
 /**
@@ -19,6 +21,8 @@ public class Product {
     private Boolean discontinued;
     private String condition;
 
+    private MultipartFile productImage;
+
     public  Product() {
         super();
     }
@@ -33,7 +37,7 @@ public class Product {
         return productId;
     }
 
-    public void setProductID(String productID) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
@@ -107,6 +111,14 @@ public class Product {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
     }
 
     @Override
