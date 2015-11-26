@@ -18,6 +18,11 @@
                 <div class="col-md-5">
                     <img src="<c:url value="/resources/images/${product.productId}.jpg"></c:url>" alt="image" style="width:100%"/>
                 </div>
+                <c:if test='${not empty product.productPdfManual}'>
+                    <p>
+                        <a href="<spring:url value="/resources/pdf/${product.productId}.pdf"/>" class="btn btn-default">PDF Manual</a>
+                    </p>
+                </c:if>
                 <div class="col-md-5">
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>

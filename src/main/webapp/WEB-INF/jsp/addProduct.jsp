@@ -90,6 +90,14 @@
               </div>
             </label>
           </div>
+          <div class="form-group fileUploadHandle">
+            <label class="control-label col-lg-2" for="productPdfManual">
+              <spring:message code="addProduct.form.productPdfManual.label"/>
+              <div class="col-lg-10">
+                <form:input id="productPdfManual" path="productPdfManual" type="file" class="form:input-large"/>
+              </div>
+            </label>
+          </div>
           <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
               <input type="submit" id="btnAdd" class="btn btn-primary" value="Add">

@@ -33,7 +33,7 @@ public class ProductController {
 
     @InitBinder
     public void initialiseBinder(WebDataBinder binder) {
-        binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category", "unitsInStock", "productImage","condition");
+        binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category", "unitsInStock", "productImage","condition", "productPdfManual");
         binder.setDisallowedFields("unitsInOrder", "discontinued");
     }
 
@@ -116,6 +116,7 @@ public class ProductController {
         }
 
         MultipartFile productImage = productToBeAdded.getProductImage();
+        MultipartFile productPdfManual = productToBeAdded.getProductPdfManual();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
         String dir = rootDirectory + "resources" + File.separator + "images" + File.separator + productToBeAdded.getProductId() + ".jpg";
         if(productImage != null && !productImage.isEmpty()) {
@@ -123,6 +124,14 @@ public class ProductController {
                 productImage.transferTo(new File(dir));
             }catch (Exception e) {
                 throw new RuntimeException("Product Image saving failed", e);
+            }
+        }
+        if(productPdfManual != null && !productPdfManual.isEmpty()) {
+            try {
+                dir = rootDirectory + "resources" + File.separator + "pdf" + File.separator + productToBeAdded.getProductId() + ".pdf";
+                productPdfManual.transferTo(new File(dir));
+            }catch (Exception e) {
+                throw new RuntimeException("Product PDF Manual saving failed", e);
             }
         }
         productService.addProduct(productToBeAdded);

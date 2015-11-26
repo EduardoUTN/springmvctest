@@ -22,6 +22,7 @@ public class Product {
     private String condition;
 
     private MultipartFile productImage;
+    private MultipartFile productPdfManual;
 
     public  Product() {
         super();
@@ -119,6 +120,14 @@ public class Product {
 
     public void setProductImage(MultipartFile productImage) {
         this.productImage = productImage;
+    }
+
+    public MultipartFile getProductPdfManual() {
+        return productPdfManual;
+    }
+
+    public void setProductPdfManual(MultipartFile productPdfManual) {
+        this.productPdfManual = productPdfManual;
     }
 
     @Override
