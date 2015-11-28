@@ -1,6 +1,8 @@
 package com.edu.web;
 
 import com.edu.domain.Product;
+import com.edu.exception.NoProductsFoundUnderCategoryException;
+import com.edu.exception.ProductNotFoundException;
 import com.edu.repository.ProductRepository;
 import com.edu.service.ProductService;
 import com.sun.javafx.sg.prism.NGShape;
@@ -13,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import sun.applet.resources.MsgAppletViewer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,7 +58,13 @@ public class ProductController {
 
     @RequestMapping("/{category}")
     public String getProductsByCategory(Model model, @PathVariable("category") String productCategory) {
-        model.addAttribute("products", productService.getProductsByCategory(productCategory));
+        List<Product> products = productService.getProductsByCategory(productCategory);
+
+        if(products == null || products.isEmpty()) {
+            throw new NoProductsFoundUnderCategoryException();
+        }
+
+        model.addAttribute("products", products);
 
         return "products";
     }
@@ -71,6 +80,16 @@ public class ProductController {
     public String getProductById(@RequestParam("id") String productId, Model model) {
         model.addAttribute("product", productService.getProductById(productId));
         return "product";
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ModelAndView handleError(HttpServletRequest request, ProductNotFoundException exception) {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("invalidProductId", exception.getProductId());
+        mav.addObject("exception", exception);
+        mav.addObject("url", request.getRequestURL() + "?" + request.getQueryString());
+        mav.setViewName("productNotFound");
+        return mav;
     }
 
     @RequestMapping("/{category}/{price}")

@@ -1,9 +1,13 @@
 package com.edu.repository.impl;
 
 import com.edu.domain.Product;
+import com.edu.exception.ProductNotFoundException;
 import com.edu.repository.ProductRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -53,8 +57,8 @@ public class InMemoryProductRepository implements ProductRepository {
                 break;
             }
         }
-        if (productId == null) {
-            throw new IllegalArgumentException("No products	found with the product id: "+ productId);
+        if (productById == null) {
+            throw new ProductNotFoundException("No products	found with the product id: "+ productId);
         }
         return productById;
     }
