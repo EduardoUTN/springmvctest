@@ -25,6 +25,7 @@
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
             <property name="paramName" value="language"/>
         </bean>
+        <bean class="com.edu.interceptor.AuditingInterceptor"/>
     </mvc:interceptors>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
