@@ -19,7 +19,11 @@
     <mvc:annotation-driven enable-matrix-variables="true"/>
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
-    
+
+    <mvc:interceptors>
+        <bean class="com.edu.interceptor.PerformanceMonitorInterceptor"/>
+    </mvc:interceptors>
+
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>

@@ -17,6 +17,7 @@
         <junit.version>4.12</junit.version>
         <jackson.version>2.6.3</jackson.version>
         <jackson.version.mapper>1.9.13</jackson.version.mapper>
+        <log4j.version>2.0</log4j.version>
     </properties>
 
     <dependencies>
@@ -26,6 +27,19 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <!-- XML and JSON Support Content -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
@@ -48,18 +62,12 @@
             <version>${jackson.version.mapper}</version>
         </dependency>
 
+        <!-- Loggin Dependencies -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${javax.servlet.version}</version>
-            <scope>provided</scope>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>${jstl.version}</version>
-        </dependency>
-
 
         <!-- Security Dependencies -->
         <dependency>
