@@ -15,6 +15,9 @@
           <h1>Products</h1>
           <p>Add Products</p>
           <a href="<c:url value="/logout"/>" class="btn btn-danger btn-mini pull-right">logout</a>
+          <div class="pull-right" style="padding-right:50px">
+            <a href="?language=en">English</a>|<a href="?language=nl">Dutch</a>
+          </div>
         </div>
       </div>
     </section>
@@ -29,53 +32,53 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-lg-2 col-lg-2" for="name">Name</label>
+            <label class="control-label col-lg-2 col-lg-2" for="name"><spring:message code="addProduct.form.name.label"/></label>
             <div class="col-lg-10">
               <form:input id="name" path="name" type="text" class="form:input-large"/>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-lg-2 col-lg-2" for="unitPrice">Unit Price</label>
+            <label class="control-label col-lg-2 col-lg-2" for="unitPrice"><spring:message code="addProduct.form.unitPrice.label"/></label>
             <div class="col-lg-10">
               <form:input id="unitPrice" path="unitPrice" type="text" class="form:input-large"/>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-lg-2 col-lg-2" for="manufacturer">Manufacturer</label>
+            <label class="control-label col-lg-2 col-lg-2" for="manufacturer"><spring:message code="addProduct.form.manufacturer.label"/></label>
             <div class="col-lg-10">
               <form:input id="manufacturer" path="manufacturer" type="text" class="form:input-large"/>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-lg-2 col-lg-2" for="category">Category</label>
+            <label class="control-label col-lg-2 col-lg-2" for="category"><spring:message code="addProduct.form.category.label"/></label>
             <div class="col-lg-10">
               <form:input id="category" path="category" type="text" class="form:input-large"/>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-lg-2 col-lg-2" for="unitsInStock">Units in Stock</label>
+            <label class="control-label col-lg-2 col-lg-2" for="unitsInStock"><spring:message code="addProduct.form.unitsInStock.label"/></label>
             <div class="col-lg-10">
               <form:input id="unitsInStock" path="unitsInStock" type="text" class="form:input-large"/>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-lg-2 col-lg-2" for="unitsInOrder">Units in Order</label>
+            <label class="control-label col-lg-2 col-lg-2" for="unitsInOrder"><spring:message code="addProduct.form.unitsInOrder.label"/></label>
             <div class="col-lg-10">
             </div>
           </div>
           <div class="form-group">
-            <label for="description" class="control-label col-lg-2">Description</label>
+            <label for="description" class="control-label col-lg-2"><spring:message code="addProduct.form.description.label"/></label>
             <div class="col-lg-10">
               <form:textarea id="description" path="description" rows="2"/>
             </div>
           </div>
           <div class="form-group">
-            <label for="discontinued" class="control-label col-lg-2">Discontinued</label>
+            <label for="discontinued" class="control-label col-lg-2"><spring:message code="addProduct.form.discontinued.label"/></label>
             <div class="col-lg-10">
             </div>
           </div>
           <div class="form-group">
-            <label for="condition" class="control-label col-lg-2">Condition</label>
+            <label for="condition" class="control-label col-lg-2"><spring:message code="addProduct.form.condition.label"/></label>
             <div class="col-lg-10">
               <form:radiobutton path="condition" value="New"/>New
               <form:radiobutton path="condition" value="Old"/>Old

@@ -36,7 +36,7 @@ public class ProductController {
 
     @InitBinder
     public void initialiseBinder(WebDataBinder binder) {
-        binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category", "unitsInStock", "productImage","condition", "productPdfManual");
+        binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category", "unitsInStock", "productImage","condition", "productPdfManual", "language");
         binder.setDisallowedFields("unitsInOrder", "discontinued");
     }
 
