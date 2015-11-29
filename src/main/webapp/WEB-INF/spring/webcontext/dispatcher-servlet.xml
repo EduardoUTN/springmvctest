@@ -26,6 +26,11 @@
             <property name="paramName" value="language"/>
         </bean>
         <bean class="com.edu.interceptor.AuditingInterceptor"/>
+        <bean class="com.edu.interceptor.PromoCodeInterceptor">
+            <property name="promoCode" value="OFF3R"/>
+            <property name="errorRedirect" value="invalidPromoCode"/>
+            <property name="offerRedirect" value="products"/>
+        </bean>
     </mvc:interceptors>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
