@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import sun.applet.resources.MsgAppletViewer;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.*;
@@ -128,8 +129,11 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public  String processAddNewProductForm(@ModelAttribute("newProduct") Product productToBeAdded, BindingResult result, HttpServletRequest request) {
+    public  String processAddNewProductForm(@ModelAttribute("newProduct") @Valid Product productToBeAdded, BindingResult result, HttpServletRequest request) {
         String[] suppressedFields = result.getSuppressedFields();
+        if(result.hasErrors()) {
+            return "addProduct";
+        }
         if(suppressedFields.length > 0) {
             throw new RuntimeException("Attempting to bind disallowed fields: " + StringUtils.arrayToCommaDelimitedString(suppressedFields));
         }
