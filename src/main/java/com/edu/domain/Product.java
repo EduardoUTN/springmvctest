@@ -28,8 +28,13 @@ public class Product {
 
     private String description;
     private String manufacturer;
+
+    @Size(min=1, max=50, message="{Size.Product.category.validation}")
     private String category;
+
+    @Min(value=0, message="{Min.Product.unitsInStock.validation}")
     private long unitsInStock;
+
     private long unitsInOrder;
     private Boolean discontinued;
     private String condition;
