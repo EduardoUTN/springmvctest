@@ -1,5 +1,7 @@
 package com.edu.domain;
 
+import com.edu.validator.Category;
+import com.edu.validator.ProductId;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,6 +18,7 @@ import java.math.BigDecimal;
 public class Product {
 
     @Pattern(regexp = "P[0-9]+", message = "{Pattern.Product.productId.validation}")
+    @ProductId
     private String productId;
 
     @Size(min = 4, max = 50, message = "{Size.Product.name.validation}")
@@ -30,6 +33,7 @@ public class Product {
     private String manufacturer;
 
     @Size(min=1, max=50, message="{Size.Product.category.validation}")
+    @Category
     private String category;
 
     @Min(value=0, message="{Min.Product.unitsInStock.validation}")
