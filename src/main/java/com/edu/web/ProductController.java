@@ -5,6 +5,7 @@ import com.edu.exception.NoProductsFoundUnderCategoryException;
 import com.edu.exception.ProductNotFoundException;
 import com.edu.repository.ProductRepository;
 import com.edu.service.ProductService;
+import com.edu.validator.UnitsInStockValidator;
 import com.sun.javafx.sg.prism.NGShape;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +36,14 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private UnitsInStockValidator unitsInStockValidator;
+
     @InitBinder
     public void initialiseBinder(WebDataBinder binder) {
         binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category", "unitsInStock", "productImage","condition", "productPdfManual", "language");
         binder.setDisallowedFields("unitsInOrder", "discontinued");
+        binder.setValidator(unitsInStockValidator);
     }
 
     @RequestMapping
