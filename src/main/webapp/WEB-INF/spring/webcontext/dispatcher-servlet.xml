@@ -78,4 +78,14 @@
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <property name="validationMessageSource" ref="messageSource"/>
     </bean>
+
+    <bean id="productValidator" class="com.edu.validator.ProductValidator">
+        <property name="springValidators">
+            <set>
+                <ref bean="unitsInStockValidator"></ref>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="unitsInStockValidator" class="com.edu.validator.UnitsInStockValidator"/>
 </beans>

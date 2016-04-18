@@ -5,6 +5,7 @@ import com.edu.exception.NoProductsFoundUnderCategoryException;
 import com.edu.exception.ProductNotFoundException;
 import com.edu.repository.ProductRepository;
 import com.edu.service.ProductService;
+import com.edu.validator.ProductValidator;
 import com.edu.validator.UnitsInStockValidator;
 import com.sun.javafx.sg.prism.NGShape;
 import com.sun.org.apache.xpath.internal.operations.Mod;
@@ -37,13 +38,13 @@ public class ProductController {
     private ProductService productService;
 
     @Autowired
-    private UnitsInStockValidator unitsInStockValidator;
+    private ProductValidator productValidator;
 
     @InitBinder
     public void initialiseBinder(WebDataBinder binder) {
         binder.setAllowedFields("productId", "name", "unitPrice", "description", "manufacturer", "category", "unitsInStock", "productImage","condition", "productPdfManual", "language");
         binder.setDisallowedFields("unitsInOrder", "discontinued");
-        binder.setValidator(unitsInStockValidator);
+        binder.setValidator(productValidator);
     }
 
     @RequestMapping
