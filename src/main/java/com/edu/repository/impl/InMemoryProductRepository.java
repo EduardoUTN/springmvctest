@@ -22,7 +22,7 @@ public class InMemoryProductRepository implements ProductRepository {
 
     public InMemoryProductRepository() {
         Product iPhone = new Product("P1234", "iPhone 5s", new BigDecimal(500));
-        iPhone.setDescription("New Apple Smart Phone 5s with 4.00-inch 640x1136	display	and	8-megapixel	rear camera");
+        iPhone.setDescription("New Apple Smart Phone 5s with 4.00-inch 640x1136 display and 8-megapixel rear camera");
         iPhone.setCategory("Smart Phone");
         iPhone.setManufacturer("Apple");
         iPhone.setUnitsInStock(1000);
