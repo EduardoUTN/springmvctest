@@ -4,7 +4,7 @@
     <head>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-        <script src="/testmvc/resources/js/controllers.js"></script>
+        <script src="/testmvc/resource/js/controllers.js"></script>
         <title>Products</title>
     </head>
     <body>
@@ -18,11 +18,11 @@
         <section class="container" ng-app="cartApp">
             <div class="row">
                 <div class="col-md-5">
-                    <img src="<c:url value="/resources/images/${product.productId}.jpg"></c:url>" alt="image" style="width:100%"/>
+                    <img src="<c:url value="/resource/images/${product.productId}.jpg"></c:url>" alt="image" style="width:100%"/>
                 </div>
                 <c:if test='${not empty product.productPdfManual}'>
                     <p>
-                        <a href="<spring:url value="/resources/pdf/${product.productId}.pdf"/>" class="btn btn-default">PDF Manual</a>
+                        <a href="<spring:url value="/resource/pdf/${product.productId}.pdf"/>" class="btn btn-default">PDF Manual</a>
                     </p>
                 </c:if>
                 <div class="col-md-5">

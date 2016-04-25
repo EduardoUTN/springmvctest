@@ -18,7 +18,7 @@
     <!-- Configures the @Controller programming model -->
     <mvc:annotation-driven enable-matrix-variables="true" validator="validator"/>
 
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/resource/**" location="/resources/"/>
 
     <mvc:interceptors>
         <bean class="com.edu.interceptor.PerformanceMonitorInterceptor"/>

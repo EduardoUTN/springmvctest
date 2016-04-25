@@ -18,7 +18,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import sun.applet.resources.MsgAppletViewer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -147,7 +146,7 @@ public class ProductController {
         MultipartFile productImage = productToBeAdded.getProductImage();
         MultipartFile productPdfManual = productToBeAdded.getProductPdfManual();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        String dir = rootDirectory + "resources" + File.separator + "images" + File.separator + productToBeAdded.getProductId() + ".jpg";
+        String dir = rootDirectory + "resource" + File.separator + "images" + File.separator + productToBeAdded.getProductId() + ".jpg";
         if(productImage != null && !productImage.isEmpty()) {
             try {
                 productImage.transferTo(new File(dir));
@@ -157,7 +156,7 @@ public class ProductController {
         }
         if(productPdfManual != null && !productPdfManual.isEmpty()) {
             try {
-                dir = rootDirectory + "resources" + File.separator + "pdf" + File.separator + productToBeAdded.getProductId() + ".pdf";
+                dir = rootDirectory + "resource" + File.separator + "pdf" + File.separator + productToBeAdded.getProductId() + ".pdf";
                 productPdfManual.transferTo(new File(dir));
             }catch (Exception e) {
                 throw new RuntimeException("Product PDF Manual saving failed", e);
