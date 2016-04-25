@@ -20,6 +20,7 @@ public class Cart {
     }
 
     public Cart (String id) {
+        this();
         this.cartId = id;
     }
 
