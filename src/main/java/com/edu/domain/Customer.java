@@ -1,25 +1,30 @@
 package com.edu.domain;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 /**
  * Created by ed on 10/26/15.
  */
 
-public class Customer {
+public class Customer implements Serializable {
+
+    private static final long serialVersionUID = 2284040482222162898L;
 
     private String customerId;
     private String name;
-    private String address;
-    private long noOfOrdersMade;
+    private Address billingAddress;
+    private String phoneNumber;
 
     public Customer() {
         super();
+        this.billingAddress = new Address();
     }
 
-    public Customer(String customerId, String name, String address) {
+    public Customer(String customerId, String name) {
+        this();
         this.customerId = customerId;
         this.name = name;
-        this.address = address;
-        this.noOfOrdersMade = 0;
     }
 
     public String getCustomerId() {
@@ -38,40 +43,39 @@ public class Customer {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public Address getBillingAddress() {
+        return billingAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setBillingAddress(Address billingAddress) {
+        this.billingAddress = billingAddress;
     }
 
-    public long getNoOfOrdersMade() {
-        return noOfOrdersMade;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setNoOfOrdersMade(long noOfOrdersMade) {
-        this.noOfOrdersMade = noOfOrdersMade;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-
-        Customer other = (Customer) obj;
-
-        return customerId.equals(other.customerId);
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
-    public	int	hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((customerId == null) ? 0 : customerId.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+
+        if (!customerId.equals(customer.customerId)) return false;
+        if (!name.equals(customer.name)) return false;
+        if (!billingAddress.equals(customer.billingAddress)) return false;
+        return phoneNumber != null ? phoneNumber.equals(customer.phoneNumber) : customer.phoneNumber == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return customerId.hashCode();
     }
 
     @Override

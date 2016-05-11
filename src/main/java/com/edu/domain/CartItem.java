@@ -1,12 +1,15 @@
 package com.edu.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
  * Created by ed on 4/23/16.
  */
-public class CartItem {
+public class CartItem implements Serializable {
+
+    private static final long serialVersionUID = -7335374176618818825L;
 
     private Product product;
     private int quantity;

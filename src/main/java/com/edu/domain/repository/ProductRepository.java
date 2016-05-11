@@ -1,4 +1,4 @@
-package com.edu.repository;
+package com.edu.domain.repository;
 
 import com.edu.domain.Product;
 

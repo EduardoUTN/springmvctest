@@ -1,13 +1,10 @@
-package com.edu.repository.impl;
+package com.edu.domain.repository.impl;
 
 import com.edu.domain.Product;
 import com.edu.exception.ProductNotFoundException;
-import com.edu.repository.ProductRepository;
+import com.edu.domain.repository.ProductRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.*;
 

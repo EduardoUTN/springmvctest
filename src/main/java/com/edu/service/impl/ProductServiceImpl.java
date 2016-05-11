@@ -1,7 +1,7 @@
 package com.edu.service.impl;
 
 import com.edu.domain.Product;
-import com.edu.repository.ProductRepository;
+import com.edu.domain.repository.ProductRepository;
 import com.edu.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

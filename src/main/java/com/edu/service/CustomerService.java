@@ -10,5 +10,9 @@ import java.util.List;
 
 public interface CustomerService {
 
+    Customer getCustomer(String customerId);
+
+    Boolean isCustomerExist(String customerId);
+
     List<Customer> getAllCustomers();
 }

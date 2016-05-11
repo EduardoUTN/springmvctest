@@ -1,7 +1,7 @@
-package com.edu.repository.impl;
+package com.edu.domain.repository.impl;
 
 import com.edu.domain.Cart;
-import com.edu.repository.CartRepository;
+import com.edu.domain.repository.CartRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;

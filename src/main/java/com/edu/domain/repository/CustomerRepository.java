@@ -1,4 +1,4 @@
-package com.edu.repository;
+package com.edu.domain.repository;
 
 import com.edu.domain.Customer;
 
@@ -9,6 +9,10 @@ import java.util.List;
  */
 
 public interface CustomerRepository {
+
+    Boolean isCustomerExist(String customerId);
+
+    Customer getCustomer(String customerId);
 
     List<Customer> getAllCustomers();
 }

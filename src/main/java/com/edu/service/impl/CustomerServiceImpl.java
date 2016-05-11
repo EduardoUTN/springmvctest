@@ -1,7 +1,8 @@
 package com.edu.service.impl;
 
 import com.edu.domain.Customer;
-import com.edu.repository.CustomerRepository;
+import com.edu.domain.repository.CustomerRepository;
+import com.edu.exception.CustomerNotFoundException;
 import com.edu.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,14 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
+    public Customer getCustomer(String customerId) {
+        return customerRepository.getCustomer(customerId);
+    }
 
-    @Override
+    public Boolean isCustomerExist(String customerId) {
+        return customerRepository.isCustomerExist(customerId);
+    }
+
     public List<Customer> getAllCustomers() {
         return customerRepository.getAllCustomers();
     }

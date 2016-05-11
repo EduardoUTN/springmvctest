@@ -1,5 +1,6 @@
 package com.edu.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +9,9 @@ import java.util.Objects;
 /**
  * Created by ed on 4/23/16.
  */
-public class Cart {
+public class Cart implements Serializable {
+
+    private static final long serialVersionUID = -579560936009662517L;
 
     private String cartId;
     private Map<String, CartItem> cartItems;
