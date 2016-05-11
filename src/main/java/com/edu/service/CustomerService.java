@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface CustomerService {
 
+    void saveCustomer(Customer customer);
+
     Customer getCustomer(String customerId);
 
     Boolean isCustomerExist(String customerId);

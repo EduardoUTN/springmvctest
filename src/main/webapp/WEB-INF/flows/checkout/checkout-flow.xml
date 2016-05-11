@@ -37,10 +37,21 @@
     </view-state>
 
     <view-state id="orderConfirmation">
-        <transition on="orderConfirmed" to="processOrder"/>
+        <transition on="orderConfirmed" to="checkMustSaveCustomer"/>
         <transition on="backToCollectShippingDetail" to="collectShippingDetail"/>
     </view-state>
-    
+
+    <decision-state id="checkMustSaveCustomer">
+        <if test="customerServiceImpl.isCustomerExist(order.customer.customerId)"
+            then="processOrder"
+            else="customerAction"/>
+    </decision-state>
+
+    <action-state id="customerAction">
+        <evaluate expression="customerServiceImpl.saveCustomer(order.customer)"/>
+        <transition to="processOrder"/>
+    </action-state>
+
     <action-state id="processOrder">
         <evaluate expression="orderServiceImpl.saveOrder(order)" result="order.orderId"/>
         <transition to="thanksCustomer"/>

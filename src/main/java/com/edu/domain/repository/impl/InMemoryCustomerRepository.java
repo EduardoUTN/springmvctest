@@ -25,6 +25,10 @@ public class InMemoryCustomerRepository implements CustomerRepository{
         listOfCustomers.add(customer1);
     }
 
+    public void saveCustomer(Customer customer) {
+        listOfCustomers.add(customer);
+    }
+
     public Boolean isCustomerExist(String customerId) {
         Boolean exist = true;
 
