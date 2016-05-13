@@ -16,10 +16,11 @@ public class CartItem implements Serializable {
     private BigDecimal totalPrice;
 
     public CartItem() {
-        // TODO Auto-generated constructor stub
+        this.quantity = 1;
     }
 
     public CartItem(Product product) {
+        super();
         this.product = product;
         this.quantity = 1;
         this.totalPrice = product.getUnitPrice();
