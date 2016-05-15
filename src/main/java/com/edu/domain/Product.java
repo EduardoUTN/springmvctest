@@ -3,6 +3,7 @@ package com.edu.domain;
 import com.edu.validator.Category;
 import com.edu.validator.ProductId;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.*;
@@ -35,7 +36,7 @@ public class Product implements Serializable {
     private String description;
     private String manufacturer;
 
-    @Size(min=1, max=50, message="{Size.Product.category.validation}")
+    @NotEmpty(message="{Size.Product.category.validation}")
     @Category
     private String category;
 
