@@ -18,9 +18,7 @@ import java.math.BigDecimal;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration("test-dispatcher-servlet.xml")
-@ContextConfiguration(locations = { "classpath:*/test-dispatcher-servlet.xml" })
-//@ContextConfiguration("file:src/test/java/com/edu/validator/test-dispatcher-servlet.xml")
+@ContextConfiguration("test-dispatcher-servlet.xml")
 @WebAppConfiguration
 public class ProductValidatorTest {
 

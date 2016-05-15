@@ -22,6 +22,7 @@
         <hibernate.version>4.3.2.Final</hibernate.version>
         <apache.tiles.version>3.0.3</apache.tiles.version>
         <slf4j-api.version>1.7.5</slf4j-api.version>
+        <json-path-assert.version>0.8.1</json-path-assert.version>
     </properties>
 
     <dependencies>
@@ -69,6 +70,11 @@
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>${jackson.version.mapper}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path-assert</artifactId>
+            <version>${json-path-assert.version}</version>
         </dependency>
 
         <!-- Loggin Dependencies -->
